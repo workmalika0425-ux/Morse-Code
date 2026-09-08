@@ -1,4 +1,4 @@
-"""Central settings for the Day 1 webcam landmark demo."""
+"""Central settings for the EyeMorse AI camera, blink, and Morse pipeline."""
 
 from pathlib import Path
 
@@ -17,7 +17,7 @@ REFINE_LANDMARKS = True
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 FACE_LANDMARKER_MODEL = PROJECT_ROOT / "models" / "face_landmarker.task"
 
-WINDOW_NAME = "EyeMorse AI - Day 3: Morse Signals"
+WINDOW_NAME = "EyeMorse AI"
 
 # Ordered contours from MediaPipe's 468-point face mesh.  "Left" and "right"
 # use the person's anatomical perspective, not the mirrored camera view.
@@ -62,8 +62,8 @@ DOT_MAX_DURATION_SECONDS = DOT_TARGET_DURATION_SECONDS * (1 + MORSE_TIMING_TOLER
 DASH_MIN_DURATION_SECONDS = DASH_TARGET_DURATION_SECONDS * (1 - MORSE_TIMING_TOLERANCE)
 DASH_MAX_DURATION_SECONDS = DASH_TARGET_DURATION_SECONDS * (1 + MORSE_TIMING_TOLERANCE)
 
-# These gaps are defined now for the same timing model. They are intentionally
-# not consumed yet: letter and word decoding are outside this stage.
+# These gaps are used by the decoder to determine symbol, character, and word
+# boundaries under the same Morse timing model.
 SYMBOL_GAP_SECONDS = SYMBOL_GAP_UNITS * MORSE_TIME_UNIT_SECONDS
 LETTER_GAP_SECONDS = LETTER_GAP_UNITS * MORSE_TIME_UNIT_SECONDS
 WORD_GAP_SECONDS = WORD_GAP_UNITS * MORSE_TIME_UNIT_SECONDS
