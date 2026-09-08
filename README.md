@@ -62,6 +62,7 @@ English text shown in Streamlit
 Morse code/
 ├── app.py                    # Streamlit layout, UI controls, WebRTC coordination
 ├── requirements.txt          # Python dependencies
+├── packages.txt              # Linux OpenCV dependency for Streamlit Community Cloud
 ├── models/
 │   └── face_landmarker.task  # Required MediaPipe Face Landmarker model
 ├── src/
@@ -123,6 +124,9 @@ numpy>=1.24
 streamlit>=1.51.0
 streamlit-webrtc>=0.76.1
 ```
+
+For Streamlit Community Cloud, `packages.txt` installs the Debian Linux package
+`libgl1`. This is required by the OpenCV dependency imported by MediaPipe.
 
 ---
 
