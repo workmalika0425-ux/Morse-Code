@@ -1,0 +1,1 @@
+"""EyeMorse AI Day 1 camera and landmark pipeline."""

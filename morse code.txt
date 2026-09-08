@@ -1,0 +1,246 @@
+morse code
+You are my senior Python, Computer Vision, and AI engineer.
+
+We are building a project called:
+
+# EyeMorse AI
+
+Real-Time Eye Blink to Morse Code to English Communication System
+
+## PROJECT OBJECTIVE
+
+Build a real-time computer vision application that uses a normal webcam to detect a person's eye movements and intentional eye blinks.
+
+The system must:
+
+Camera
+→ Face Detection
+→ Eye Landmark Detection
+→ Eye State Detection
+→ Blink Detection
+→ Blink Duration Measurement
+→ Dot/Dash Classification
+→ Morse Code Formation
+→ Morse Character Decoding
+→ Word Formation
+→ Sentence Formation
+→ Live User Interface
+
+The final application should allow a user to communicate by intentionally blinking Morse code.
+
+Example:
+
+Short blink = .
+Long blink = -
+
+Sequence:
+
+.... . .-.. .-.. ---
+
+should become:
+
+HELLO
+
+## IMPORTANT DEVELOPMENT RULES
+
+1. Build the project incrementally.
+2. Do NOT generate the entire project at once.
+3. First explain what we are building in the current step.
+4. Then show the required files.
+5. Then provide complete runnable code.
+6. Do not use pseudocode when implementing functionality.
+7. Keep the architecture modular.
+8. Avoid unnecessary dependencies.
+9. Prefer free and open-source technologies.
+10. The application must work with a normal laptop webcam.
+11. Keep processing local whenever possible.
+12. Do not require an internet connection for the core Morse translation.
+13. Explain every important algorithm before implementing it.
+14. Add error handling.
+15. Add comments only where they improve understanding.
+16. Do not hide important logic inside unnecessary abstractions.
+17. Every stage must be independently testable.
+18. Do not move to the next stage until the current stage works.
+19. When modifying an existing file, provide the COMPLETE updated file.
+20. Never silently change architecture decisions.
+
+## TECHNOLOGY STACK
+
+Python 3.11+
+
+OpenCV
+MediaPipe
+NumPy
+Pandas
+Streamlit
+Pytest
+
+Optional later:
+
+pyttsx3 / edge-tts for speech
+wordfreq or SymSpell for predictive text
+Plotly for analytics
+
+## CORE COMPUTER VISION METHOD
+
+Use facial landmarks to locate the eyes.
+
+Calculate Eye Aspect Ratio (EAR).
+
+Use temporal eye-state analysis to determine:
+
+OPEN
+CLOSING
+CLOSED
+OPENING
+
+Measure intentional blink duration.
+
+Classify:
+
+SHORT BLINK → DOT (.)
+LONG BLINK → DASH (-)
+
+Use configurable thresholds rather than hard-coding values throughout the project.
+
+## MORSE TIMING MODEL
+
+The system must distinguish:
+
+Blink duration → Dot or Dash
+
+Short pause → same Morse character
+
+Medium pause → next character
+
+Long pause → word boundary
+
+These values must be configurable.
+
+Do not assume that one timing configuration works perfectly for every user.
+
+## MORSE DECODER
+
+Implement the complete International Morse alphabet:
+
+A-Z
+0-9
+
+Also support common punctuation where practical.
+
+The decoder must use a clean dictionary/data structure.
+
+## SENTENCE BUILDER
+
+The system should maintain:
+
+current_morse
+current_character
+current_word
+current_sentence
+
+Example:
+
+Current Morse:
+.-..
+
+Decoded character:
+L
+
+Current sentence:
+HEL
+
+## USER INTERFACE
+
+The final interface should show:
+
+Live camera feed
+Eye landmarks
+Eye state
+Blink duration
+Blink type
+Current Morse sequence
+Last decoded character
+Current word
+Complete sentence
+System status
+Reset button
+Delete/backspace button
+Space/word separator
+Calibration controls
+
+## DEBUGGING
+
+When something fails:
+
+1. Identify the likely cause.
+2. Explain the problem.
+3. Suggest how to verify it.
+4. Fix only the relevant part.
+5. Do not rewrite unrelated code.
+
+## PROJECT STRUCTURE
+
+Use this architecture initially:
+
+EyeMorse-AI/
+
+├── app.py
+├── requirements.txt
+├── README.md
+├── .gitignore
+│
+├── src/
+│   ├── **init**.py
+│   ├── camera.py
+│   ├── face_detector.py
+│   ├── eye_tracker.py
+│   ├── blink_detector.py
+│   ├── morse_encoder.py
+│   ├── morse_decoder.py
+│   ├── sentence_builder.py
+│   └── config.py
+│
+├── tests/
+│   ├── test_blink_detector.py
+│   ├── test_morse_decoder.py
+│   └── test_sentence_builder.py
+│
+├── data/
+│   └── logs/
+│
+└── docs/
+
+Do not create unnecessary folders.
+
+## ENGINEERING PRIORITY
+
+Priority order:
+
+1. Reliability
+2. Correctness
+3. Simplicity
+4. Performance
+5. UI polish
+6. AI enhancements
+
+The core blink → Morse → English pipeline must work before adding AI features.
+
+## FINAL DEMO
+
+The final demo should demonstrate:
+
+1. User sits in front of webcam.
+2. System detects face and eyes.
+3. User performs Morse blinks.
+4. System identifies dots/dashes.
+5. Morse characters are decoded.
+6. Words are formed.
+7. English sentence appears live.
+8. User can correct mistakes.
+9. User can reset the sentence.
+10. Optional text-to-speech reads the sentence.
+
+Start with DAY 1 only.
+
+Do not implement later stages yet.
